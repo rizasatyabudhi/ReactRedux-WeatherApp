@@ -1,0 +1,24 @@
+1. All DOM event handlers (onChange,onHover,onScroll) , they come along with (event) object , as parameter
+2. If you ever pass a callback param as a function, and that callback has a reference to this, we need to bind the context 
+this.onInputChange = this.onInputChange.bind(this);
+shortly, If you got a callback and make a reference to "this", we need to bind it
+
+3. We use <form> tag whenever we want fo recieve input from the user, but don't forget to add property
+
+// Add this method first
+ onFormSubmit(event){
+     event.preventDefault();
+ }
+
+// use it in <form onSubmit = {this.onFormSubmit}>
+ 
+ To prevent the form from re-submitting 
+
+ 4. Middleware is just a function that lets action pass, manipulate it, logs it, or stops it, BEFORE it hits the reducer (Gatekeeper)
+
+ 5. Remember, ActionCreator must always return an Action , which is an object that MUST have a property of "type"
+ 6. For the type property, we have to pass a variable , not a string, so that we have a consistency accross our App
+    type : FETCH_DATA , instead of , type : 'FETCH_DATA'
+
+7. When we have a callback that we pass to jsx and it makes reference to "this", we need to bind the context
+    this.onSubmit = this.onSubmit.bind(this);
