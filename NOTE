@@ -22,3 +22,8 @@ shortly, If you got a callback and make a reference to "this", we need to bind i
 
 7. When we have a callback that we pass to jsx and it makes reference to "this", we need to bind the context
     this.onSubmit = this.onSubmit.bind(this);
+
+8. Never ever state this.state.text = ..... , never set state equal something,
+   We only update state by calling setState 
+   We dont ever manipulate state directly  (NEVER MUTATE YOUR STATE, only return new instance of state)
+   We never want to manipulate our state , instead we want to create a new array
