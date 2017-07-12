@@ -30,3 +30,5 @@ shortly, If you got a callback and make a reference to "this", we need to bind i
 
 9. mapStateToProps = helps our component to get updated state (which is updated by some other component)
    mapDispatchToProps = helps our componet to fire an action event (dispatching action which may cause change of application state)
+
+10. When importing, use { } if the target is not export default 
