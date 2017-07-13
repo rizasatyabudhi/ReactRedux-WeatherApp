@@ -32,3 +32,12 @@ shortly, If you got a callback and make a reference to "this", we need to bind i
    mapDispatchToProps = helps our componet to fire an action event (dispatching action which may cause change of application state)
 
 10. When importing, use { } if the target is not export default 
+
+REVIEW
+1. We use redux-promise as middleware to handle a promise that we receive
+   while using axios ( we use axios for AJAX request).
+   The middleware automatically detected a payload of a promise , stops that action, and wait for the promise to 
+   resolve,
+   once the promise resolved, it took the data coming back from the request, and stuck it on the payload property,
+   then send the action to all the reducers
+   in short, we can't accept payload as PROMISE, so we use middleware (redux-promise) to convert it 
