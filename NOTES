@@ -1,0 +1,53 @@
+1. All DOM event handlers (onChange,onHover,onScroll) , they come along with (event) object , as parameter
+2. If you ever pass a callback param as a function, and that callback has a reference to this, we need to bind the context 
+this.onInputChange = this.onInputChange.bind(this);
+shortly, If you got a callback and make a reference to "this", we need to bind it
+
+3. We use <form> tag whenever we want fo recieve input from the user, but don't forget to add property
+
+// Add this method first
+ onFormSubmit(event){
+     event.preventDefault();
+ }
+
+// use it in <form onSubmit = {this.onFormSubmit}>
+ 
+ To prevent the form from re-submitting 
+
+ 4. Middleware is just a function that lets action pass, manipulate it, logs it, or stops it, BEFORE it hits the reducer (Gatekeeper)
+
+ 5. Remember, ActionCreator must always return an Action , which is an object that MUST have a property of "type"
+ 6. For the type property, we have to pass a variable , not a string, so that we have a consistency accross our App
+    type : FETCH_DATA , instead of , type : 'FETCH_DATA'
+
+7. When we have a callback that we pass to jsx and it makes reference to "this", we need to bind the context
+    this.onSubmit = this.onSubmit.bind(this);
+
+8. Never ever state this.state.text = ..... , never set state equal something,
+   We only update state by calling setState 
+   We dont ever manipulate state directly  (NEVER MUTATE YOUR STATE, only return new instance of state)
+   We never want to manipulate our state , instead we want to create a new array
+
+9. mapStateToProps = helps our component to get updated state (which is updated by some other component)
+   mapDispatchToProps = helps our componet to fire an action event (dispatching action which may cause change
+   of application state)
+
+10. When importing, use { } if the target is not export default 
+
+REVIEW
+1. We use redux-promise as middleware to handle a promise that we receive
+   while using axios ( we use axios for AJAX request).
+   The middleware automatically detected a payload of a promise , stops that action, and wait for the promise to 
+   resolve,
+   once the promise resolved, it took the data coming back from the request, and stuck it on the payload property,
+   then send the action to all the reducers
+   in short, we can't accept payload as PROMISE, so we use middleware (redux-promise) to convert it 
+
+2. Avoid mutating our state , we never want to modify our state directly, 
+   instead, we return a  new object , that will take the place of our existing state
+
+3. props.(something) itu untuk child component, biar bisa ngambil property yang di assign di parent component
+contoh : WeatherList (parent component) punya <Chart data={temps} color="orange" units="C" /> 
+di dalem Chart component (child component of WeatherList) , buat ngambil data di (data={temps}), 
+kita pakai props.data
+contoh : <Sparklines data={props.data}> 

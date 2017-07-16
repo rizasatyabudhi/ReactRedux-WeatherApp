@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// These imports are used to connecct SearchBar container to Redux
+// These imports are used to connect SearchBar container to Redux
 // in order to use the ActionCreator ( fetchWeather)
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
