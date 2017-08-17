@@ -1,2 +1,4 @@
-npm install <br>
+# Redux Weather App
+
+npm install 
 npm start
